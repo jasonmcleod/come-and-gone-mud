@@ -52,5 +52,6 @@ module.exports = (state, client) => {
     // setTimeout(() => { require('./test-scripts/combat')(state, client, player, delta); }, delta+=500);
     // setTimeout(() => { require('./test-scripts/eat')(state, client, player, delta); }, delta+=500);
     // setTimeout(() => { require('./test-scripts/build-terminal')(state, client, player, delta); }, delta+=500);
+    setTimeout(() => { require('./test-scripts/build-compass')(state, client, player, delta); }, delta+=500);
     
 };

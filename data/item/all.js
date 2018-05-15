@@ -177,7 +177,7 @@ module.exports = (repo) => ([
         inspect: 'Seems to be broken, but contains useful parts.'
     }),
     repo.add({
-        name: 'CD player',               skill: 10, chance: { bp:60, item: 30 },
+        name: 'CD player',               skill: 30, chance: { bp:60, item: 30 },
         parts: [repo.find('laser'), repo.find('motor'), repo.find('gear'), repo.find('capacitor'),
             repo.find('resistor'), repo.find('resistor'), repo.find('battery')],
         inspect: 'Seems to be broken, but contains useful parts.'
@@ -185,18 +185,18 @@ module.exports = (repo) => ([
 
     // SIMPLE MACHINES =========================================
     repo.add({
-        name: 'power supply',            skill: 50, chance: { bp:30, item: 15 },
+        name: 'power supply',            skill: 30, chance: { bp:30, item: 15 },
         parts: [repo.find('battery'), repo.find('enclosure'), repo.find('wire'), repo.find('microcontroller'), repo.find('capacitor'), repo.find('fan'),
             repo.find('capacitor'), repo.find('resistor'), repo.find('resistor'), repo.find('battery'), repo.find('battery'), repo.find('battery'), repo.find('battery')],
         inspect: 'Power your builds.'
     }),
     repo.add({
-        name: 'blinking light',          skill: 70, attention: 30, chance: { bp:70, item: 15 },
+        name: 'blinking light',          skill: 10, attention: 30, chance: { bp:70, item: 15 },
         parts:[repo.find('LED'), repo.find('battery'), repo.find('circuit board') ],
         inspect: 'Indicate read/write opperations. Be careful - this can call attention to the area.'
     }),
     repo.add({
-        name: 'drill',                   skill: 60, chance: { bp:60, item:25 }, equipment: 'wield', modifiers: { skills: { assembly: 20 } },
+        name: 'drill',                   skill: 30, chance: { bp:60, item:25 }, equipment: 'wield', modifiers: { skills: { assembly: 20 } },
         parts: [ repo.find('motor', {size: 'very small'}), repo.find('gear'), repo.find('battery')],
         inspect: 'Can be equipped to assist with assembly/disassembly.'
     }),
@@ -223,13 +223,13 @@ module.exports = (repo) => ([
 
     // KEY OBJECTIVE BUILDS ====================================
     repo.add({
-        name: 'compass',                 skill:100, chance: { bp:60, item: 15 }, weight: 2,
+        name: 'compass',                 skill:0, chance: { bp:60, item: 15 }, weight: 2,
         parts: [repo.find('magnet'), repo.find('enclosure', {size: 'very small'})],
         inspect: 'Read your coordinates simply by having this in your inventory.'
     }),
 
     repo.add({
-        name: 'walkie talkie',           skill: 90, attention: 60, chance: { bp:40, item: 10},
+        name: 'walkie talkie',           skill: 40, attention: 60, chance: { bp:40, item: 10},
         parts:[repo.find('gear'), repo.find('gear'), repo.find('gear'), repo.find('metal rod'), repo.find('enclosure', {size: 'large'}), repo.find('magnet')],
         inspect: 'Communicate with others... is anyone out there?'
     }),
@@ -247,6 +247,6 @@ module.exports = (repo) => ([
     }),
 
     // TEST ITEMS ==============================================
-    repo.add({ name: 'build tester easy',       skill: 1, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'large'}), repo.find('enclosure', {size: 'large'}) ]}),
-    repo.add({ name: 'build tester hard',       skill: 1, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'very small'}), repo.find('enclosure', {size: 'very small'}) ]})
+    repo.add({ name: 'build tester easy',       skill: 101, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'large'}), repo.find('enclosure', {size: 'large'}) ]}),
+    repo.add({ name: 'build tester hard',       skill: 101, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'very small'}), repo.find('enclosure', {size: 'very small'}) ]})
 ]);
