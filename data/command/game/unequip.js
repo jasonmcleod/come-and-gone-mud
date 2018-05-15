@@ -13,7 +13,7 @@ module.exports = (repo, state) => ({
     execute: (client, str) => {
         const item = state.itemRepository.resolve(str, client.player.inventory.items);
         if(!item) return onFail(client);
-        if(item.name == 'Bare Hands') {
+        if(item.name == 'bare hands') {
             client.log('That would hurt a little...');
         } else {
             const currentlyEquipped = client.player.equipment[item.equipment]();

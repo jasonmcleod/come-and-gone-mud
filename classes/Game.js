@@ -68,6 +68,10 @@ class Game {
         });
         return players;
     }
+
+    distanceFromCenter(x, y) {
+        return 80;
+    }
 }
 
 module.exports = Game;

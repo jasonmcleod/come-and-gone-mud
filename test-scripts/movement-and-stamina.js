@@ -2,7 +2,6 @@ const logger = require('../lib/logger');
 module.exports = (state, client, player) => {
 
     let delta  = 0;
-    // add a fishing pole to the area and pick it up
     setTimeout(() => {
         state.commandRepository.execute(client, 'east');
         state.commandRepository.execute(client, 'west');

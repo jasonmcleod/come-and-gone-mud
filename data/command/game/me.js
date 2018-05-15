@@ -12,6 +12,9 @@ module.exports = (repo, state) => ({
     execute: (client, str) => {
         const player = client.player;
         client.log(`${player.name} details`);
+        if(player.shelter) {
+            client.log(`You are sheltered by ${player.shelter.fullName()}`);    
+        }
         client.log('Your vitals -------------------------------');
         client.log(`Health:                     ${pad(player.vitals.health,3)} / ${player.vitals.healthMax}`);
         client.log(`Stamina:                    ${pad(player.vitals.stamina,3)} / 100`);

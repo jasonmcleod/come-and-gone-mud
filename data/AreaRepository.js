@@ -33,7 +33,8 @@ class AreaRepository {
     }
 
     generateItems(area, plainview, hidden) {
-        logger.log('genreating items');
+        logger.log('generating items');
+        const results = [];
         for(let i = 0; i < plainview; i++) {
             const roll = range(0, 100);
             const copy = arrayShuffle(this.state.itemRepository.collection.filter((i) => i.chanceOfFinding() > 0));
@@ -53,8 +54,11 @@ class AreaRepository {
             const rng = range(0, this.state.itemRepository.collection.length);
             const generated = this.state.itemRepository.generate(this.state.itemRepository.collection[rng]);
             generated.hidden = true;
+            results.push(generated);
             area.inventory.add(generated);
         }
+
+        return results;
     }
 
     generateLandmarks(area) {

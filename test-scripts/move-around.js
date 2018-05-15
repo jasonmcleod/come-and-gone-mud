@@ -3,7 +3,6 @@ const config = require('../config');
 module.exports = (state, client, player) => {
 
     let delta  = 0;
-    // add a fishing pole to the area and pick it up
     let times = 100;
     setTimeout(() => {
         for(let i = 0; i < times; i++) {

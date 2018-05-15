@@ -2,7 +2,6 @@ const logger = require('../lib/logger');
 module.exports = (state, client, player) => {
 
     let delta  = 0;
-    // add a fishing pole to the area and pick it up
     setTimeout(() => {
         player.area.inventory.add(state.itemRepository.generate({name: 'gear'}));
         player.area.inventory.add(state.itemRepository.generate({name: 'wheel'}, {size: 'very large'}));

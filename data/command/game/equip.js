@@ -18,7 +18,7 @@ module.exports = (repo, state) => ({
                 if(item.hasOwnProperty('equipment') && !item.blueprint) {
                     // find whatever may be equipped in this item's slot
                     const currentlyEquipped = client.player.equipment[item.equipment]();
-                    if(currentlyEquipped && currentlyEquipped.name != 'Bare Hands') {
+                    if(currentlyEquipped && currentlyEquipped.name != 'bare hands') {
                         client.log(`You unequip ${currentlyEquipped.fullName()}`);
                         currentlyEquipped.equipped = false;
                     }

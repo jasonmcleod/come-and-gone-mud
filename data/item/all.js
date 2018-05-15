@@ -118,6 +118,14 @@ module.exports = (repo) => ([
         name: 'wood',                    chance: 70,  weight: 1,
         inspect: 'Some builds require this simple material.'
     }),
+    repo.add({
+        name: 'football helmet',         chance: 15,  weight: 2, equipment: 'helmet', 
+        inspect: 'High protection, low fashion.'
+    }),
+    repo.add({
+        name: 'sturdy armor',            chance: 15,  weight: 2, equipment: 'armor', 
+        inspect: 'Protection for your body'
+    }),
 
 
     // COMPLEX PARTS
@@ -239,7 +247,7 @@ module.exports = (repo) => ([
     }),
 
     repo.add({
-        name: 'distress terminal',       skill: 90, attention: 60, chance: { bp:10, item: 1},
+        name: 'distress terminal',       skill: 90, attention: 60, chance: { bp:10, item: -1},
         parts:[
             repo.find('keypad button'), repo.find('keypad button'), repo.find('keypad button'), repo.find('keypad button'),
             repo.find('speaker'), repo.find('speaker'), repo.find('radio crystal'), repo.find('radio transmitter'), repo.find('screen'),

@@ -3,7 +3,6 @@ const config = require('../config');
 module.exports = (state, client, player) => {
 
     let delta  = 0;
-    // add a fishing pole to the area and pick it up
     setTimeout(() => {
         player.area.inventory.add(state.itemRepository.generate({name: 'build tester easy'}, {blueprint: true}));
         player.area.inventory.add(state.itemRepository.generate({name: 'gear'}, {size: 'large'}));

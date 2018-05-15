@@ -23,17 +23,14 @@ class Item extends ProceduralEntity {
         const weightScan = (item) => {
             if(item.hasOwnProperty('parts')) {
                 item.parts.forEach((p) => {
-                    if(item.name === 'distress terminal') logger.log(`add weight nested (${item.name})`, p.name, p.weight || 0);
                     total+=p.weight || 0;
                     return weightScan(p);
                 });
             } else {
-                if(item.name === 'distress terminal') logger.log('add weight', item.name, item.weight || 0);
                 return item.weight || 0;
             }
         }
         weightScan(this);
-        if(this.name === 'distress terminal') logger.log('add weight total', total);
         return total; 
     }
 

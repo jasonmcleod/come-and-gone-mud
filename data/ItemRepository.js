@@ -13,14 +13,14 @@ class ItemRepository extends Repository {
         this.collection = [];
         // todo: should move this out?
         this.attributes = {
-            // size: ['very small', 'small', 'large', 'very large'],
-            // length: ['very short', 'short', 'long', 'very long'],
-            // voltage: ['1.5v', '9v', '12v'],
-            // color: ['red', 'green', 'blue', 'orange'],
-            size: ['one-size'],
-            length: ['one-length'],
-            voltage: ['one-voltage'],
-            color: ['one-color'],
+            size: ['very small', 'small', 'large', 'very large'],
+            length: ['very short', 'short', 'long', 'very long'],
+            voltage: ['1.5v', '9v', '12v'],
+            color: ['red', 'green', 'blue', 'orange'],
+            // size: ['one-size'],
+            // length: ['one-length'],
+            // voltage: ['one-voltage'],
+            // color: ['one-color'],
         };
     }
 

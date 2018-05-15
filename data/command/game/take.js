@@ -34,7 +34,11 @@ module.exports = (repo, state) => ({
                 client.log(`You picked up [${item.fullName()}]`);
                 const itemName = item.fullName();
                 area.inventory.remove(item);
-                events.emit('area_inventory_changed', area, player, itemName);
+                const playersHere = state.game.getPlayersInArea(area);
+                playersHere.forEach((p) => {
+                    if(p != player) p.client.log(`${player.name} picked up [${itemName}] from the area.`)
+                });
+                events.emit('area_inventory_changed', area);
             } else {
                 client.log('Not enough space in inventory');
             }
