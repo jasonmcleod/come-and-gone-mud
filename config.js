@@ -1,0 +1,52 @@
+const config = {
+    GAMENAME: 'Come and Gone',
+    INTRO_TEXT: `You awaken from a deep sleep. The machines that have been keeping you asleep for years have ceased to function. You slowly rise to your feet and look around the area. Type "look" to continue...`,
+    TELNET_PORT: 4200,
+    WEB_PORT: 4201,
+    ERROR_DELAY: 1000,
+    STARTING_X_MIN: 20,
+    STARTING_X_MAX: 60,
+    STARTING_Y_MIN: 20,
+    STARTING_Y_MAX: 60,
+    INVENTORY_MAX_SIZE:50, 
+    TICK_RATE: 1, 
+    TICK_HUNGER: 1000 * 10,
+    TICK_STAMINA: 1000 * 30,
+    HUNGER_PER_EAT: 4,
+    REPL_LOG: true,
+    DETECTION_HELPER: 30,
+    STAMINA_PER_MOVE: 2,
+    STAMINA_PER_REST: 6,
+    STAMINA_PER_REST_SHELTERED: 20,
+    SAVE_INTERVAL: 1000 * 60,
+    FISHING_SKILL_INCREASE_CHANCE: 40,
+    FISHING_NERF: 20,
+    FISHING_MIN_TIME:1000,
+    FISHING_MAX_TIME:3000,
+    FISHING_STOCK_RATE: 1000 * 60 * 3,
+    FISHING_POSSIBLE_STOCK: 4,
+    LUMBERJACKING_SKILL_INCREASE_CHANCE: 40,
+    LUMBERJACKING_NERF: 20,
+    LUMBERJACKING_MIN_TIME:1000,
+    LUMBERJACKING_MAX_TIME:3000,
+    LUMBERJACKING_POSSIBLE_STOCK: 4,
+    LUMBERJACKING_STOCK_RATE: 1000 * 120,
+    TREES_STOCK_RATE: 1000 * 60 * 10,
+    POSSIBLE_ITEMS: 6,
+    POSSIBLE_HIDDEN_ITEMS: 2,
+    CHANCE_OF_ITEMS: 80,
+    CHANCE_OF_LANDMARK: 60,
+    CHANCE_OF_STRUCTURE: 0,
+    POSSIBLE_NPCS: 20,
+    CHANCE_OF_NPCS: 100,
+    REST_TIME: 3000,
+    BUILD_ATEMPT_BOOST: 1,
+    BUILD_SUCCEED_BOOST: 4,
+    AREA_STOCK_RATE: 5000
+};
+
+config.override = (key, value) => {
+    config[key] = value;
+};
+
+module.exports = config;

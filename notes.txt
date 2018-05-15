@@ -1,0 +1,53 @@
+//should inventory remove/add take strings or object instances? - should accept both
+
+// should hunger be 0=full or 100=full?
+
+// question: inventory.add(existing item instance, or new create new item instance?)
+// question: how to store ItemDef vs Item
+
+data/commands/<context> needs a readme entry
+
+// anything with a parts array can exist as a schematic instead of an instance
+mixins
+
+movement
+    x: Integer,
+    y: Integer,
+    lastPosition: [x,y,z],
+    flee() // go back to your previous position
+    move(x, y)
+
+attribute
+    attributes: Map
+    getAttribute(String)
+    setAttribute(String, Integer)
+
+inventory
+    items: Array
+    inventory: {
+        add()
+        remove()
+        has()
+        hasType('food') //  would see if any item is food
+    }    
+
+chat
+    say()
+    yell()
+
+
+combat
+    attack()
+
+vitals
+    health
+    stamina
+    die()
+    respawn()
+
+
+
+
+    
+
+

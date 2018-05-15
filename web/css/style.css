@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'DOS';
+    src: url('fonts/Fixedsys500c.eot');
+    src: local('â˜º'), url('fonts/Fixedsys500c.woff') format('woff'), url('fonts/Fixedsys500c.ttf') format('truetype'), url('fonts/Fixedsys500c.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: DOS, Monaco, Menlo, Consolas, "Courier New", monospace;
+    background: #000;
+    color: #bbbbbb;
+    font-size:24px;
+}
+.fuzzy {
+    filter: blur(1px);
+    /* text-shadow: 0px 1px rgb(187,187,187,.4), 0px -1px rgb(187,187,187,.4), 1px 0px rgb(187,187,187,.4), -1px 0px rgb(187,187,187,.4); */
+}
+
+p {
+    margin:0;
+    padding:0;
+}
+
+#prompt-wrapper, #prompt {
+    font-family: DOS, Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+#prompt {
+    background:transparent;
+    border:0;
+    outline: none;
+    width:100%;
+    font-size:24px;
+    color:white;
+    /* color: transparent;
+    position: relative;
+    left:-999999px; */
+}
+
+#promptCopy {
+    position: relative;
+    top:-1em;
+}
+
+#systemPrompt {
+    position: relative;
+    top:-1px;
+}
+
+#cursor-full, #cursor-underscore {
+    background:#bbb;
+    margin-top:1px;
+    width:.70em;
+    display: inline-block;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+#cursor-full {
+    height:1em;
+}
+
+#cursor-underscore {
+    height:.15em;
+}
+
+@keyframes blink { from, to { opacity: 1; } 50% { opacity: 000; } }  
+@-moz-keyframes blink { from, to { opacity: 1; } 50% { opacity: 000; } }
+@-webkit-keyframes blink { from, to { opacity: 1; } 50% { opacity: 000; } }
+@-ms-keyframes blink { from, to { opacity: 1; } 50% { opacity: 000; } }
+@-o-keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
+
+.color-36m {
+    color:cyan;
+}
+.color-39m {
+    color:#bbbbbb;
+}
+.color-33m {
+    color:yellow;
+}
+.color-32m { 
+    color: green;
+}
