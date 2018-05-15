@@ -5,6 +5,7 @@ const movementMixin = require('../mixins/movement');
 const vitalsMixin = require('../mixins/vitals');
 const skillsMixin = require('../mixins/skills');
 const recordMixin = require('../mixins/record');
+const combatMixin = require('../mixins/combat');
 
 class Player {
     constructor(props) {
@@ -14,6 +15,7 @@ class Player {
         Object.assign(this, vitalsMixin(this));
         Object.assign(this, skillsMixin(this));
         Object.assign(this, recordMixin(this));
+        Object.assign(this, combatMixin(this));
         
         this.records = [];
         this.client = this.client || props.client;

@@ -61,8 +61,8 @@ module.exports = (rules) => {
     
         // speed of development :P
         setTimeout(() => { state.commandRepository.execute(testClient, 'login'); }, 0);
-        setTimeout(() => { state.commandRepository.execute(testClient, 'test'); }, 0);
-        setTimeout(() => { state.commandRepository.execute(testClient, 'test'); }, 1000);
+        setTimeout(() => { state.commandRepository.execute(testClient, 'testscripts'); }, 0);
+        setTimeout(() => { state.commandRepository.execute(testClient, 'testscripts'); }, 1000);
         setTimeout(() => { state.commandRepository.execute(testClient, '1'); }, 1500);
 
         const repl = require('./clients/repl');

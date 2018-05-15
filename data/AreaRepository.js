@@ -67,11 +67,6 @@ class AreaRepository {
             if(generated.hasOwnProperty('onCreate')) generated.onCreate(generated);
             area.encounters.add(generated);
         }
-
-        // const rng = range(0, this.state.landmarkRepository.collection.length);
-        // const generated = this.state.landmarkRepository.generate(this.state.landmarkRepository.collection[rng]);
-        // if(generated.hasOwnProperty('onCreate')) generated.onCreate(generated);
-        // area.encounters.add(generated);
     }
 
     generateNpcs(area) {
@@ -82,6 +77,8 @@ class AreaRepository {
         if(pick) {                
             const generated = this.state.npcRepository.generate(pick);
             if(generated.hasOwnProperty('onCreate')) generated.onCreate(generated);
+            generated.x = area.x;
+            generated.y = area.y;
             area.encounters.add(generated);
         }
     }

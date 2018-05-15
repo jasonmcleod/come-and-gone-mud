@@ -26,6 +26,10 @@ module.exports = (self, overrides) => {
                 }
             },
 
+            clear: () => {
+                self.inventory.items.length = 0;
+            },
+
             find: (item) => {
                 const found = self.inventory.items.findIndex((i) => i === item);
                 if(found>-1) return found;

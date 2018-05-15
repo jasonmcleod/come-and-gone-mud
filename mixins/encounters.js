@@ -42,6 +42,11 @@ module.exports = (self) => ({
         findStructure: (what) => {           
             let structure = self.encounters.structures.find((s) => colors.strip(s.name.toLowerCase()) == colors.strip(what.toLowerCase()));
             return structure || false;
+        },
+
+        findNpc: (what) => {           
+            let npc = self.encounters.npcs.find((s) => colors.strip(s.name.toLowerCase()) == colors.strip(what.toLowerCase()));
+            return npc || false;
         }
     }
 });

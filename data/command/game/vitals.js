@@ -10,7 +10,7 @@ module.exports = (repo) => ({
     execute: (client, str) => {
         const player = client.player;
         client.log('Your vitals:');
-        client.log(`Health:                     ${pad(player.vitals.health,3)} / ${player.vitals.healthMax()}`);
+        client.log(`Health:                     ${pad(player.vitals.health,3)} / ${player.vitals.healthMax}`);
         client.log(`Stamina:                    ${pad(player.vitals.stamina,3)} / 100`);
         client.log(`Hunger:                     ${pad(100 - player.vitals.hunger,3)} / 100`);
     }

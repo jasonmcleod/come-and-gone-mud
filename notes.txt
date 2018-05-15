@@ -7,6 +7,8 @@
 
 data/commands/<context> needs a readme entry
 
+shelter is have baked.. nothing hits you in the head, and you can still fight when inside one :P
+
 // anything with a parts array can exist as a schematic instead of an instance
 mixins
 

@@ -18,10 +18,10 @@ module.exports = (self) => ({
         }
     },
     setPosition: (x, y) => {
-        events.emit('player_left_area', self.client, self.x, self.y);
+        events.emit('player_left_area', self.client, self.x, self.y);// todo: bug- assumes this is a player.. wont work with npcs
         self.x = x;
         self.y = y;      
-        events.emit('player_entered_area', self.client, self.x, self.y);
+        events.emit('player_entered_area', self.client, self.x, self.y); // todo: bug- assumes this is a player.. wont work with npcs
         events.emit('move', self);
 
         return true;

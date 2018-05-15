@@ -17,7 +17,6 @@ class Item extends ProceduralEntity {
 
     totalWeight() {
         if(this.hasOwnProperty('weight')) return this.weight;
-        console.log('calculate weight');
 
         let total = 0;
         const weightScan = (item) => {

@@ -8,6 +8,7 @@ const config = {
     STARTING_X_MAX: 60,
     STARTING_Y_MIN: 20,
     STARTING_Y_MAX: 60,
+    COMBAT_SPEED: 1000,
     INVENTORY_MAX_SIZE:50, 
     TICK_RATE: 1, 
     TICK_HUNGER: 1000 * 10,

@@ -3,7 +3,10 @@ const range = require('../../lib/range');
 
 module.exports = (repo) => {
     repo.add({
-        chance:50,
-        name: 'rat'
+        chance: 100,        
+        name: 'rat',
+        vitals: {
+            healthMax: 20
+        }
     });
 };
