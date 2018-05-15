@@ -17,16 +17,11 @@ module.exports = (repo, state) => ({
 
         const item = state.itemRepository.resolve(str, player.inventory.items);
         if(item) {
-            // let out = '';
-            // if(item.hasOwnProperty('parts')) {
-            //     client.log(`[${item.fullName()}] seems to be made up of ${item.parts.length} reusable components`);
-            //     item.parts.forEach((p) => {
-            //         client.log(`\t${p.fullName()}`)
-            //     });
-            // } else {
-            //     out+= `The [${item.fullName()}] looks like it could be used as a building material.`;
-            // }
-            client.log(item.inspect || 'No details.');
+            if(item.skill && item.skill <= player.skills.research) {
+                client.log(item.inspect || 'No details.');
+            } else {
+                client.log(item.inspect || 'No details.');
+            }            
         } else {
             client.log(`You don't seem to have that.`);
         }

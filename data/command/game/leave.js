@@ -18,7 +18,7 @@ module.exports = (repo, state) => ({
         
         if(structure) {
             player.shelter = false;
-            client.log(`You move out of the protection of the [${structure.name.cyan}]` + '(not implemented)'.red);
+            client.log(`You move out of the protection of the [${structure.name.cyan}]`);
         } else {
             client.log(`You are not inside a structure.`);
         }

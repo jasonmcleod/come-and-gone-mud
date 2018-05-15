@@ -216,8 +216,12 @@ module.exports = (repo) => ([
 
     // STRUCTURES ==============================================
     repo.add({
-        name: 'tent',                    chance: 10,  weight: 1, placeable: true,
-        inspect: 'The simplist of shelters. Place a tent and enter it to protect yourself.'
+        name: 'small fort',              skill: 5, chance: { bp:80, item: 1}, placeable: true,
+        parts:[
+            repo.find('wood'), repo.find('wood'),repo.find('wood'),repo.find('wood'),repo.find('wood'),
+            repo.find('wood'), repo.find('wood'),repo.find('wood'),repo.find('wood'),repo.find('wood')
+        ],
+        inspect: 'The simplist of shelters. Place a small fort and enter it to protect yourself from the elements.'
     }),
 
 

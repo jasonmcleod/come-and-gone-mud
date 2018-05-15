@@ -18,7 +18,7 @@ module.exports = (repo, state) => ({
         const structure = player.area.encounters.findStructure(str);
         if(structure) {
             player.shelter = structure;
-            client.log(`You move into the protection of [${structure.fullName().cyan}]` + '(not implemented)'.red);
+            client.log(`You move into the protection of [${structure.fullName().cyan}]`);
         }
         
     }
