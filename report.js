@@ -92,7 +92,6 @@ if(reports.blueprints) {
     blueprints.forEach((item) => {
         if(!item.chance) logger.error(`${item.name} has no chance of being found.`);
         let c = scale.find((s) => s.chance >= item.chance.bp);
-        console.log(item.name, c);
         logger.log(`[${item.name.cyan}] blueprint chances (after ${colorsSafe[c.color](item.chance.item)} / 100 roll): ${colorsSafe[c.color](item.chance.bp)} / 100}`);            
     });
 }

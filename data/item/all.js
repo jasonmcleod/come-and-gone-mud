@@ -159,12 +159,12 @@ module.exports = (repo) => ([
         inspect: 'Brute force dissasembly.'
     }),
     repo.add({
-        name: 'fishing pole',            skill: 95, chance: { bp:80, item: 50 },
+        name: 'fishing pole',            skill: 20, chance: { bp:80, item: 50 },
         parts: [repo.find('metal rod', {length: 'very long'}), repo.find('cork'), repo.find('wire', {length: 'very long'})],
         inspect: 'Can be used to catch fish if you are near a body of water.'
     }),
     repo.add({
-        name: 'high capacity cart',      skill: 7, chance: { bp:5, item: 2 }, passiveModifiers: { extra: { capacity: 40 } },
+        name: 'high capacity cart',      skill: 75, chance: { bp:5, item: 2 }, passiveModifiers: { extra: { capacity: 40 } },
         parts: [repo.find('wheel', {size: 'large'}), repo.find('wheel', {size: 'large'}), repo.find('wheel', {size: 'large'}),
         repo.find('wheel', {size: 'large'}), repo.find('enclosure', {size: 'very large'}),
         repo.find('axle', {size: 'large'}), repo.find('axle', {size: 'large'})

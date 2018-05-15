@@ -11,12 +11,15 @@ module.exports = (repo, state) => ({
         });
         if(client.player.skills.totalAssembly() >= client.workbench.skill - range(0, client.player.skills.research)) {                
             client.log(`You ` + 'successfully built'.green + ` [${client.workbench.fullName()}]`);
+            events.emit('build_success', client, client.workbench);
             events.emit('skill_up', client, 'research', config.BUILD_ATEMPT_BOOST);
+            events.emit('skill_up', client, 'assembly', config.BUILD_ATEMPT_BOOST);
             client.workbench.blueprint = false;
         } else {
             client.log(`You ` + 'failed'.red + ` to build [${client.workbench.fullName()}]`);
         }
         events.emit('skill_up', client, 'research', config.BUILD_SUCCEED_BOOST);
+        events.emit('skill_up', client, 'assembly', config.BUILD_SUCCEED_BOOST);
         if(client.player.inventory.has('piece of paper') && client.player.inventory.has('pencil')) {
             client.log('You make notes on a piece of paper (+1 research)');
             events.emit('skill_up', client, 'research', 1);    

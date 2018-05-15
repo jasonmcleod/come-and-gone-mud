@@ -23,7 +23,7 @@ module.exports = (repo, state) => ({
                         currentlyEquipped.equipped = false;
                     }
                     item.equipped = true;
-                    client.log(`You euip [${item.fullName()}]`);
+                    client.log(`You equip [${item.fullName()}]`);
                 } else {
                     client.log(`Not something you can equip.`);        
                 }

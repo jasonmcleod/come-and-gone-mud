@@ -19,6 +19,7 @@ module.exports = (state, client, player) => {
     ]
     setTimeout(() => {
         // player.area.inventory.add(state.itemRepository.generate({name: 'distress terminal'}));
+        player.skills.assembly = 99;
         player.area.inventory.add(state.itemRepository.generate({name: 'distress terminal'}, {blueprint: true}));
         player.area.inventory.add(state.itemRepository.generate({name: 'drill'}));
 

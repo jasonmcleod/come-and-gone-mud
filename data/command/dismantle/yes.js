@@ -13,9 +13,9 @@ module.exports = (repo, state) => ({
             let part = state.itemRepository.generate(p, p);
             if(player.skills.totalAssembly() >= item.skill - range(0, player.skills.research)) {
                 player.inventory.add(part);
-                client.log(`You ` + 'successfully'.green + ` salvage a ${part.fullName()} from the [${item.fullName()}]!`)
+                client.log(`You successfully salvage a ${part.fullName()} from the [${item.fullName()}]!`.green)
             } else {
-                client.log(`You ` + 'fail'.red + ` to salvage the [${part.fullName()}] from the [${item.fullName()}]`);
+                client.log(`You fail to salvage the [${part.fullName()}] from the [${item.fullName()}]`.red);
             }
             events.emit('skill_up', client, 'assembly', 2);
             events.emit('skill_up', client, 'research', 1);

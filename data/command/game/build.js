@@ -35,9 +35,12 @@ module.exports = (repo, state) => ({
         if(item) {
             if(item.blueprint) {
                 // walk the parts and make sure they are Item instances - this way we can lock in the requirements.
-                item.parts = item.parts.map((p) => {
-                    return p.generated ? p: state.itemRepository.generate(p, p) // find with base name, then put the exact attributes on if they are set
-                });
+                if(!item.buildList) {
+                    item.parts = item.parts.map((p) => {
+                        return state.itemRepository.generate(p, p);
+                    });
+                    item.buildList = true;
+                }
                 client.log('The build requires the following parts:');
                 let needed = item.parts.length;
                 item.parts.forEach((p) => {

@@ -1,4 +1,5 @@
 const logger = require('../lib/logger');
+const range = require('../lib/range');
 const Item = require('../classes/Item');
 const Repository = require('./Repository');
 const colors = require('colors');
@@ -76,7 +77,8 @@ class ItemRepository extends Repository {
         // if this item has attributes, generate them
         if(props.hasOwnProperty('attributes')) {
             for(let a in props.attributes) {
-                let rng = ~~(Math.random() * this.attributes[props.attributes[a]].length-1);
+                let rng = range(0, this.attributes[props.attributes[a]].length);                
+                logger.log('adding attribute', props.attributes[a], this.attributes[props.attributes[a]], this.attributes[props.attributes[a]][rng])
                 item[props.attributes[a]] = this.attributes[props.attributes[a]][rng];
             }
         }
