@@ -52,6 +52,7 @@ socket.on('newLine', function(data) {
     formatted = formatted.split('[39m').join('<span class="color-39m">');
     formatted = formatted.split('[33m').join('<span class="color-33m">');
     formatted = formatted.split('[32m').join('<span class="color-32m">');
+    formatted = formatted.split('[31m').join('<span class="color-31m">');
 
     let count = (formatted.match(/<span/g) || []).length;
 
