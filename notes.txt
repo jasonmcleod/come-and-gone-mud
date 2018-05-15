@@ -1,3 +1,49 @@
+// objective!
+End game
+    --- Distress Terminal ---
+
+        12 Keypad buttons
+
+        2 Speakers
+            - piece of paper
+            - magnet
+
+        Radio Crystal
+            - none
+
+        Radio Transmitter
+            - none
+
+        Screen
+            - none
+
+        6 LEDs
+            - none
+
+        Generator           - or - Power Supply
+            - gear                  - 4 batteries
+            - magnet                - wire
+            - rod                   - fan
+            - wire
+            - motor
+
+        Antenna
+            - rod
+            - wire
+
+        3 Circuit boards
+            - plastic plate
+            - capacitor
+            - resistor
+            - wire
+    
+        2 Enclosures
+
+        10 Wires
+            - none
+
+
+
 //should inventory remove/add take strings or object instances? - should accept both
 
 // should hunger be 0=full or 100=full?
