@@ -12,6 +12,9 @@ module.exports = (self) => ({
         resting: false,
         eat:() => {
             self.hunger = Math.max(self.vitals.hunger+config.HUNGER_PER_EAT, 0); // todo: each item should be able to influence stamina differently
+            // todo: give a method to add health that wont allow it to go over
+            self.health+=10; // todo: let food have a property for how much health to give
+            self.health = Math.min(self.health, self.maxHealth);
             events.emit('eat', self);
         },
         rest:() => {

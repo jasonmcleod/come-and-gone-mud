@@ -47,6 +47,7 @@ socket.on('newLine', function(data) {
     formatted = formatted.split('\t').join('&nbsp;&nbsp;&nbsp;&nbsp;');
     // todo: make a pattern matcher
     // todo: let it escape on its own
+    formatted = formatted.split(' ').join('&nbsp;');
     formatted = formatted.split('[36m').join('<span class="color-36m">');
     formatted = formatted.split('[39m').join('<span class="color-39m">');
     formatted = formatted.split('[33m').join('<span class="color-33m">');
