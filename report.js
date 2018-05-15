@@ -10,7 +10,7 @@ const state = require('./app')(rules);
 
 const reports = {
     missing: false,
-    counter: false,
+    counter: true,
     chance: false,
     blueprints: true
 };
@@ -30,13 +30,14 @@ const matrix = {
 };
 
 const collectionCopy = state.itemRepository.collection.splice(0);
+collectionCopy.forEach((item) => {
+    item.uses = 0;
+    matrix.parts.push(item);
+});
 
-if(reports.missing) {
+// if(reports.missing) {
     logger.log('---------- missing parts report -------------');
-    collectionCopy.forEach((item) => {
-        item.uses = 0;
-        matrix.parts.push(item);
-    });
+    
     collectionCopy.forEach((item) => {
         if(item.hasOwnProperty('parts')) {
             matrix.builds.push(item);
@@ -50,7 +51,7 @@ if(reports.missing) {
             });
         }
     });
-}
+// }
 
 if(reports.counter) {
     logger.log('---------- uses counter report -------------');
@@ -91,7 +92,7 @@ if(reports.blueprints) {
     blueprints.forEach((item) => {
         if(!item.chance) logger.error(`${item.name} has no chance of being found.`);
         let c = scale.find((s) => s.chance >= item.chance.bp);
-        
+        console.log(item.name, c);
         logger.log(`[${item.name.cyan}] blueprint chances (after ${colorsSafe[c.color](item.chance.item)} / 100 roll): ${colorsSafe[c.color](item.chance.bp)} / 100}`);            
     });
 }

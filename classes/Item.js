@@ -16,21 +16,25 @@ class Item extends ProceduralEntity {
     }
 
     totalWeight() {
+        if(this.blueprint) return 0;
         if(this.hasOwnProperty('weight')) return this.weight;
 
         let total = 0;
         const weightScan = (item) => {
             if(item.hasOwnProperty('parts')) {
                 item.parts.forEach((p) => {
+                    if(item.name === 'distress terminal') logger.log(`add weight nested (${item.name})`, p.name, p.weight || 0);
                     total+=p.weight || 0;
                     return weightScan(p);
                 });
             } else {
-                return item.weight;
+                if(item.name === 'distress terminal') logger.log('add weight', item.name, item.weight || 0);
+                return item.weight || 0;
             }
         }
         weightScan(this);
-        return total;
+        if(this.name === 'distress terminal') logger.log('add weight total', total);
+        return total; 
     }
 
     modifiersAsText() {

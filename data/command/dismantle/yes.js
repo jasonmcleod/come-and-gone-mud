@@ -11,7 +11,7 @@ module.exports = (repo, state) => ({
         client.log(`You begin to dismantle the [${item.fullName()}] using your ${tool.fullName()}`);
         item.parts.forEach((p) => {                                        
             let part = state.itemRepository.generate(p, p);
-            if(player.skills.totalAssembly() >= item.assemblyChance - range(0, player.skills.research)) {
+            if(player.skills.totalAssembly() >= item.skill - range(0, player.skills.research)) {
                 player.inventory.add(part);
                 client.log(`You ` + 'successfully'.green + ` salvage a ${part.fullName()} from the [${item.fullName()}]!`)
             } else {

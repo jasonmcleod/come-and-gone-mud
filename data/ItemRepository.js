@@ -16,7 +16,11 @@ class ItemRepository extends Repository {
             size: ['very small', 'small', 'large', 'very large'],
             length: ['very short', 'short', 'long', 'very long'],
             voltage: ['1.5v', '9v', '12v'],
-            color: ['red', 'green', 'blue', 'orange']
+            color: ['red', 'green', 'blue', 'orange'],
+            // size: ['one-size'],
+            // length: ['one-length'],
+            // voltage: ['one-voltage'],
+            // color: ['one-color'],
         };
     }
 
@@ -42,7 +46,6 @@ class ItemRepository extends Repository {
     }
 
     find(str, specifications=false) {
-        logger.log('bomb?', str);
         let found = super.find(str);
         if(found && specifications) {
             found = new Item(Object.assign(found, specifications));

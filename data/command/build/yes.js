@@ -9,7 +9,7 @@ module.exports = (repo, state) => ({
         client.workbench.parts.forEach((p) => {
             client.player.inventory.remove(p);
         });
-        if(client.player.skills.totalAssembly() >= client.workbench.assemblyChance - range(0, client.player.skills.research)) {                
+        if(client.player.skills.totalAssembly() >= client.workbench.skill - range(0, client.player.skills.research)) {                
             client.log(`You ` + 'successfully built'.green + ` [${client.workbench.fullName()}]`);
             events.emit('skill_up', client, 'research', config.BUILD_ATEMPT_BOOST);
             client.workbench.blueprint = false;

@@ -4,7 +4,7 @@
 /* loose schema:
     name             string: the name of the component
     chance           integer or object with {item: integer, bp: integer}: chance of finding
-    assemblyChance   integer: chance the player has of building it
+    skill            integer: chance the player has of building it
     attack           integer: how hard will this thing hit?
     weight           integer: how much inventory space to take up?
     attributes       array: which proceedural attributes will it get?
@@ -23,8 +23,40 @@ module.exports = (repo) => ([
         inspect: 'Can be used in combination with paper for making notes.'
     }),
     repo.add({
-        name: 'magnet',                  chance: 80,  weight: 1,
+        name: 'fan',                     chance: 80,  weight: 1, attributes: ['size'],
+        inspect: 'Dissipate heat.'
+    }),
+    repo.add({
+        name: 'screen',                  chance: 80,  weight: 3, attributes: ['size'],
+        inspect: 'Visual output for your builds.'
+    }),
+    repo.add({
+        name: 'keypad button',          chance: 70,  weight: 1,
+        inspect: 'With enough of these things you may be able to make something interesting.'
+    }),
+    repo.add({
+        name: 'radio crystal',          chance: 10,  weight: 1,
+        inspect: `It's pretty... but what does it do?`
+    }),
+    repo.add({
+        name: 'radio transmitter',          chance: 20,  weight: 1,
+        inspect: `Transmit radio frequencies.`
+    }),
+    repo.add({
+        name: 'magnet',                  chance: 80,  weight: 1, attributes: ['size'],
         inspect: 'Detect and react to magnetic fields.'
+    }),
+    repo.add({
+        name: 'capacitor',               chance: 5,  weight: 1,
+        inspect: 'Store an electric charge.'
+    }),
+    repo.add({
+        name: 'resistor',                chance: 5,  weight: 1,
+        inspect: 'Limit the amount of current moving through a circuit.'
+    }),
+    repo.add({
+        name: 'microcontroller',         chance: 10,  weight: 1,
+        inspect: 'Used in simple electronics'
     }),
     repo.add({
         name: 'piece of scrap metal',    chance: 70,  weight: 2, attributes: ['size'],
@@ -75,7 +107,7 @@ module.exports = (repo) => ([
         inspect: 'It floats...'
     }),
     repo.add({
-        name: 'rod',                     chance: 40, weight: 1, attributes: ['length'],
+        name: 'metal rod',                     chance: 40, weight: 1, attributes: ['length'],
         inspect: 'Simple iron bar.'
     }),
     repo.add({
@@ -87,17 +119,24 @@ module.exports = (repo) => ([
         inspect: 'Some builds require this simple material.'
     }),
 
+
     // COMPLEX PARTS
     repo.add({
-        name: 'speaker',                 chance: 20, weight: 4, attributes: ['size'],
+        name: 'speaker',                 chance: { bp:60, item: 15 }, weight: 4, attributes: ['size'],
+        parts: [repo.find('piece of paper'), repo.find('magnet')],
         inspect: 'Outputs sound in simple machines.'
     }),
     repo.add({
-        name: 'antenna',                 chance: 10, weight: 2, attributes: ['length'],
+        name: 'antenna',                 chance: { bp:50, item: 10 }, weight: 2, attributes: ['length'],
+        parts: [repo.find('metal rod'), repo.find('wire')],
         inspect: 'Send and receive radio signals.'
     }),
     repo.add({
-        name: 'circuit board',           chance: 5, weight: 2, attributes: ['size'],
+        name: 'circuit board',           chance: { bp:60, item: 10 }, weight: 2, attributes: ['size'],
+        parts: [repo.find('capacitor'), repo.find('capacitor'), repo.find('capacitor'), repo.find('capacitor'),
+            repo.find('resistor'), repo.find('resistor'), repo.find('resistor'), repo.find('resistor'), repo.find('wire'), repo.find('wire'),
+            repo.find('microcontroller')
+            ],
         inspect: 'Add logic to your build.'
     }),
 
@@ -111,66 +150,69 @@ module.exports = (repo) => ([
         name: 'pry bar',                 attack: 8, chance: 30, equipment: 'wield', modifiers: { skills: { assembly: 5 } },     weight: 2,
         inspect: 'Brute force dissasembly.'
     }),
-
-
-    // BUILDS ===================================================
     repo.add({
-        name: 'compass',                 chance: { bp:60, item: 15 }, weight: 2,
-        parts: [repo.find('magnet'), repo.find('enclosure', {size: 'very small'})],
-        inspect: 'Read your coordinates simply by having this in your inventory.'
-    }),
-    repo.add({
-        name: 'handheld radio',          assemblyChance: 10, chance: { bp:40, item: 15 },
-        parts: [repo.find('battery'), repo.find('speaker'), repo.find('antenna'), repo.find('enclosure'), repo.find('wire'), repo.find('wire')],
-        inspect: 'Seems to be broken, but contains useful parts.'
-    }),
-    repo.add({
-        name: 'power supply',            assemblyChance: 30, chance: { bp:30, item: 15 },
-        parts: [repo.find('battery'), repo.find('enclosure'), repo.find('wire')],
-        inspect: 'Power your builds.'
-    }),
-    repo.add({
-        name: 'CD player',               assemblyChance: 10, chance: { bp:60, item: 30 },
-        parts: [repo.find('laser'), repo.find('motor'), repo.find('gear')],
-        inspect: 'Seems to be broken, but contains useful parts.'
-    }),
-    repo.add({
-        name: 'fishing pole',            assemblyChance: 95, chance: { bp:80, item: 50 },
-        parts: [repo.find('rod', {length: 'very long'}), repo.find('cork'), repo.find('wire', {length: 'very long'})],
+        name: 'fishing pole',            skill: 95, chance: { bp:80, item: 50 },
+        parts: [repo.find('metal rod', {length: 'very long'}), repo.find('cork'), repo.find('wire', {length: 'very long'})],
         inspect: 'Can be used to catch fish if you are near a body of water.'
     }),
     repo.add({
-        name: 'high capacity cart',      assemblyChance: 7, chance: { bp:5, item: 2 }, passiveModifiers: { extra: { capacity: 40 } },
-        parts: [repo.find('wheel', {size: 'large'}), repo.find('wheel', {size: 'large'}), repo.find('wheel',
-            {size: 'large'}), repo.find('wheel', {size: 'large'}), repo.find('enclosure', {size: 'very large'})],
+        name: 'high capacity cart',      skill: 7, chance: { bp:5, item: 2 }, passiveModifiers: { extra: { capacity: 40 } },
+        parts: [repo.find('wheel', {size: 'large'}), repo.find('wheel', {size: 'large'}), repo.find('wheel', {size: 'large'}),
+        repo.find('wheel', {size: 'large'}), repo.find('enclosure', {size: 'very large'}),
+        repo.find('axle', {size: 'large'}), repo.find('axle', {size: 'large'})
+        ],
         inspect: 'Provides additional inventory space. Very helpful!'
     }),
     repo.add({
-        name: 'axe',                     attack: 10, assemblyChance: 5, chance: { bp:60, item: 10 }, equipment: 'wield',
-        parts: [repo.find('rod'), repo.find('piece of scrap metal', {size: 'large'}), repo.find('wire')],
+        name: 'axe',                     attack: 10, skill: 90, chance: { bp:60, item: 10 }, equipment: 'wield',
+        parts: [repo.find('metal rod'), repo.find('piece of scrap metal', {size: 'large'}), repo.find('wire')],
         inspect: 'Can be used to chop down trees, or dismantle items'
     }),
+
+    // JUNK BUILDS ==============================================
     repo.add({
-        name: 'blinking light',          assemblyChance: 10, attention: 30, chance: { bp:70, item: 15 },
+        name: 'busted radio',          skill: 70, chance: { bp:40, item: 15 },
+        parts: [repo.find('battery'), repo.find('speaker'), repo.find('antenna'), repo.find('enclosure'), repo.find('wire'), repo.find('wire'),
+            repo.find('microcontroller'), repo.find('capacitor'), repo.find('capacitor'), repo.find('resistor'), repo.find('resistor')],
+        inspect: 'Seems to be broken, but contains useful parts.'
+    }),
+    repo.add({
+        name: 'CD player',               skill: 10, chance: { bp:60, item: 30 },
+        parts: [repo.find('laser'), repo.find('motor'), repo.find('gear'), repo.find('capacitor'),
+            repo.find('resistor'), repo.find('resistor'), repo.find('battery')],
+        inspect: 'Seems to be broken, but contains useful parts.'
+    }),
+
+    // SIMPLE MACHINES =========================================
+    repo.add({
+        name: 'power supply',            skill: 50, chance: { bp:30, item: 15 },
+        parts: [repo.find('battery'), repo.find('enclosure'), repo.find('wire'), repo.find('microcontroller'), repo.find('capacitor'), repo.find('fan'),
+            repo.find('capacitor'), repo.find('resistor'), repo.find('resistor'), repo.find('battery'), repo.find('battery'), repo.find('battery'), repo.find('battery')],
+        inspect: 'Power your builds.'
+    }),
+    repo.add({
+        name: 'blinking light',          skill: 70, attention: 30, chance: { bp:70, item: 15 },
         parts:[repo.find('LED'), repo.find('battery'), repo.find('circuit board') ],
         inspect: 'Indicate read/write opperations. Be careful - this can call attention to the area.'
     }),
     repo.add({
-        name: 'drill',                   assemblyChance: 30, chance: { bp:60, item:25 }, equipment: 'wield', modifiers: { skills: { assembly: 20 } },
+        name: 'drill',                   skill: 60, chance: { bp:60, item:25 }, equipment: 'wield', modifiers: { skills: { assembly: 20 } },
         parts: [ repo.find('motor', {size: 'very small'}), repo.find('gear'), repo.find('battery')],
         inspect: 'Can be equipped to assist with assembly/disassembly.'
     }),
     repo.add({
-        name: 'metal detector',          assemblyChance: 5 , chance: { bp:10, item:10 },  passiveModifiers: { skills: {detection:25} },
-        parts:[repo.find('blinking light'), repo.find('speaker'), repo.find('rod', {length: 'very long'}) ],
+        name: 'metal detector',          skill: 20 , chance: { bp:10, item:10 },  passiveModifiers: { skills: {detection:25} },
+        parts:[repo.find('blinking light'), repo.find('speaker'), repo.find('metal rod', {length: 'very long'}),
+        repo.find('capacitor'), repo.find('capacitor'), repo.find('resistor'), repo.find('resistor'), repo.find('battery')],
         inspect: 'Makes spotting hidden items easier.'
     }),
     repo.add({
-        name: 'generator',               assemblyChance: 4, attention: 60, chance: { bp:40, item: 10},
-        parts:[repo.find('gear'), repo.find('gear'), repo.find('gear'), repo.find('rod'), repo.find('enclosure', {size: 'large'}) ],
+        name: 'generator',               skill: 50, attention: 60, chance: { bp:40, item: 10},
+        parts:[repo.find('gear'), repo.find('gear'), repo.find('gear'), repo.find('metal rod'), repo.find('enclosure', {size: 'large'}),
+            repo.find('magnet')
+            ],
         inspect: 'Provides power to your build. Noisy!'
     }),
-    
 
     // STRUCTURES ==============================================
     repo.add({
@@ -179,7 +221,32 @@ module.exports = (repo) => ([
     }),
 
 
+    // KEY OBJECTIVE BUILDS ====================================
+    repo.add({
+        name: 'compass',                 skill:100, chance: { bp:60, item: 15 }, weight: 2,
+        parts: [repo.find('magnet'), repo.find('enclosure', {size: 'very small'})],
+        inspect: 'Read your coordinates simply by having this in your inventory.'
+    }),
+
+    repo.add({
+        name: 'walkie talkie',           skill: 90, attention: 60, chance: { bp:40, item: 10},
+        parts:[repo.find('gear'), repo.find('gear'), repo.find('gear'), repo.find('metal rod'), repo.find('enclosure', {size: 'large'}), repo.find('magnet')],
+        inspect: 'Communicate with others... is anyone out there?'
+    }),
+
+    repo.add({
+        name: 'distress terminal',       skill: 90, attention: 60, chance: { bp:10, item: 1},
+        parts:[
+            repo.find('keypad button'), repo.find('keypad button'), repo.find('keypad button'), repo.find('keypad button'),
+            repo.find('speaker'), repo.find('speaker'), repo.find('radio crystal'), repo.find('radio transmitter'), repo.find('screen'),
+            repo.find('LED'), repo.find('LED'), repo.find('LED'), repo.find('LED'), repo.find('LED'), repo.find('LED'),
+            repo.find('generator'), repo.find('antenna'), repo.find('circuit board'), repo.find('circuit board'), repo.find('circuit board'), 
+            repo.find('wire'), repo.find('wire'), repo.find('wire'), repo.find('wire'), repo.find('wire'),
+        ],
+        inspect: 'Is anyone out there?'
+    }),
+
     // TEST ITEMS ==============================================
-    repo.add({ name: 'build tester easy',       assemblyChance: 1, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'large'}), repo.find('enclosure', {size: 'large'}) ]}),
-    repo.add({ name: 'build tester hard',       assemblyChance: 1, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'very small'}), repo.find('enclosure', {size: 'very small'}) ]})
+    repo.add({ name: 'build tester easy',       skill: 1, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'large'}), repo.find('enclosure', {size: 'large'}) ]}),
+    repo.add({ name: 'build tester hard',       skill: 1, chance: { bp:false, item:false}, parts:[repo.find('gear', {size: 'very small'}), repo.find('enclosure', {size: 'very small'}) ]})
 ]);

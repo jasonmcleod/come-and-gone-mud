@@ -8,6 +8,8 @@ class Area {
         Object.assign(this, encountersMixin(this));
         Object.assign(this, props);
 
+        this.inventory.capacity = () => 300;
+
         this.name = this.name || props.name || 'Unnamed area';
     }
 }

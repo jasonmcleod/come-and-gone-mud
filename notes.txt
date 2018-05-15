@@ -16,6 +16,8 @@ End game
 
         Screen
             - none
+        
+        Blinking light
 
         6 LEDs
             - none
@@ -32,7 +34,6 @@ End game
             - wire
 
         3 Circuit boards
-            - plastic plate
             - capacitor
             - resistor
             - wire

@@ -1,4 +1,5 @@
 const colors = require('colors');
+const isNum = require('../../../lib/isNum');
 const logger = require('../../../lib/logger');
 const chance = require('../../../lib/chance');
 const events = require('../../../lib/events');
@@ -19,13 +20,18 @@ module.exports = (repo, state) => ({
 
     execute: (client, str) => {
         const player = client.player;
-        // if there are not enough details: fail
+
         if(str.length<=0) return onFail(player);
 
         let item = false;
-        player.inventory.items.forEach((i) => {
-            if(i.blueprint && colors.strip(i.fullName()) == str) item = i;
-        });
+        if(isNum(str)) {
+            player.inventory.items.forEach((i, index) => {
+                if(str == index+1) item = i;
+            });
+        } else {
+            item = state.itemRepository.resolve(str, player.inventory.items);
+        }
+
         if(item) {
             if(item.blueprint) {
                 // walk the parts and make sure they are Item instances - this way we can lock in the requirements.
