@@ -12,10 +12,10 @@ module.exports = (repo) => ({
         client.log(`!!!       !@!  !!!  !@!   ! !@!  !!!!!:    `);
         client.log(`:!!       !!:  !!!  !!:     !!:  !!:       `);
         client.log(`:!:       :!:  !:!  :!:     :!:  :!:       `);
-        client.log(` ::: :::  ::::: ::  :::     ::   :: ::::  `);
+        client.log(` ::: :::  ::::: ::  :::     ::   :: ::::   `);
         client.log(` :: :: :  : :  :    :       :    : :: ::   `);
         client.log(`                                           `);      
-        client.log(`                AND                        `);               
+        client.log(`                  AND                      `);               
         client.log(`                                           `);
         client.log(` @@@@@@@@   @@@@@@   @@@  @@@  @@@@@@@@    `);
         client.log(`@@@@@@@@@  @@@@@@@@  @@@@ @@@  @@@@@@@@    `);
@@ -25,8 +25,8 @@ module.exports = (repo) => ({
         client.log(`!!! !!@!!  !@!  !!!  !@!  !!!  !!!!!:      `);
         client.log(`:!!   !!:  !!:  !!!  !!:  !!!  !!:         `);
         client.log(`:!:   !::  :!:  !:!  :!:  !:!  :!:         `);
-        client.log(` ::: ::::  ::::: ::  ::   ::  :: ::::    `);
-        client.log(` :: :: :    : :  :   ::    :    : :: ::    `);
+        client.log(` ::: ::::  ::::: ::  ::   ::   :: ::::     `);
+        client.log(` :: :: :    : :  :   ::    :   : :: ::     `);
         
         client.log(``);
         
