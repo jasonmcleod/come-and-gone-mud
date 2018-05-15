@@ -5,6 +5,7 @@ const onFail = (client) => {
 }
 
 module.exports = (repo) => ({
+    alias: ['attack'],
 
     help: (client) => {
         client.log('kill: enter combat with your target');

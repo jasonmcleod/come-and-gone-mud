@@ -1,12 +1,6 @@
 const logger = require('../lib/logger');
 const config = require('../config');
 let nextAttack = 0;
-// const meter = (value, max) => {
-//     let meter = '';
-//     for(let c=0; c < max;c++) {
-
-//     }
-// };
 module.exports = (events, state) => {
     events.on('tick', () => {
         const now = Date.now();
@@ -14,37 +8,41 @@ module.exports = (events, state) => {
             state.game.clients.forEach((client) => {
                 if(client.player) {
                     const player = client.player;
-                    // if(!player.shelter) {
-                        if(player.target) {
-                            const target = player.target;
-                            if(player.target.x === player.x && player.target.y === player.y) {
-                                console.log(`${player.name} should attack ${target.name}`);
-                                const playerAttack = range(player.combat.minAttack, player.combat.maxAttack);
-                                const targetAttack = range(target.combat.minAttack, target.combat.maxAttack);
-                                client.log(`player: ${playerAttack}, target: ${targetAttack}`);
+                    if(player.target) {
+                        const target = player.target;
+                        if(player.target.x === player.x && player.target.y === player.y) {
+                            const weapon = player.equipment.wield();
+                            const hitBonus = weapon ? weapon.attack : 0;
+                            const playerAttack = range(player.combat.minAttack, player.combat.maxAttack) + hitBonus;
+                            const targetAttack = range(target.combat.minAttack, target.combat.maxAttack);
 
-                                target.vitals.health -= playerAttack;                            
-                                player.vitals.health -= targetAttack;
-                                client.log(`You hit ${target.name} for ${playerAttack}`);
-                                client.log(`Your HP: ${player.vitals.health} / ${player.vitals.healthMax}`);
-                                client.log(`${target.name} hit you for ${targetAttack}`);
-                                client.log(`Target HP: ${target.vitals.health} / ${target.vitals.healthMax}`);
+                            target.vitals.health -= playerAttack;                            
+                            player.vitals.health -= targetAttack;
+                            client.log(`You hit ${target.name} for ${playerAttack} with your [${weapon.fullName().cyan}]`.green);
+                            client.log(`\tYour HP: ${Math.max(0, player.vitals.health)} / ${player.vitals.healthMax}`);
+                            client.log(`${target.name} hit you for ${targetAttack}`.red);
+                            client.log(`\tTarget HP: ${Math.max(0, target.vitals.health)} / ${target.vitals.healthMax}`);
 
-                                if(target.vitals.health <= 0) {
-                                    client.log(`You killed ${target.name}!`);
-                                    player.area.encounters.remove(target);
-                                    player.target = false;
+                            if(target.vitals.health <= 0) {
+                                const drop = range(0, target.drop);
+                                
+                                client.log(`You killed ${target.name}!`.green);
+                                if(drop) {
+                                    client.log(`You pickup ${drop} gold`);
+                                    client.player.gold+=drop;
                                 }
-                                if(player.vitals.health <= 0) {
-                                    client.log(`${target.name} killed you!`);
-                                    player.vitals.die();
-                                }
+                                
+                                player.area.encounters.remove(target);
+                                player.target = false;
+                                
+                            }
+                            if(player.vitals.health <= 0) {
+                                client.log(`${target.name} killed you!`.red);
+                                player.vitals.die();
                             }
                         }
                     }
-                // } else {
-                    // in shelter, cant attack
-                // }
+                }
             });
             nextAttack = now + config.COMBAT_SPEED;
         }

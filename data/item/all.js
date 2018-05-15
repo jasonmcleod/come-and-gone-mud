@@ -101,11 +101,11 @@ module.exports = (repo) => ([
         inspect: 'The simplist of shelters. Place a tent and enter it to protect yourself.'
     }),
     repo.add({
-        name: 'screw driver',            chance: 25, equipment: 'wield', modifiers: { skills: { assembly: 15 } },    weight: 1,
+        name: 'screw driver',            attack:2, chance: 25, equipment: 'wield', modifiers: { skills: { assembly: 15 } },    weight: 1,
         inspect: 'Can be equipped to assist with assembly/disassembly.'
     }),
     repo.add({
-        name: 'pry bar',                 chance: 30, equipment: 'wield', modifiers: { skills: { assembly: 5 } },     weight: 2,
+        name: 'pry bar',                 attack: 8, chance: 30, equipment: 'wield', modifiers: { skills: { assembly: 5 } },     weight: 2,
         inspect: 'Brute force dissasembly.'
     }),
 
@@ -135,7 +135,7 @@ module.exports = (repo) => ([
         inspect: 'Provides additional inventory space. Very helpful!'
     }),
     repo.add({
-        name: 'axe',                     assemblyChance: 5, chance: { bp:60, item: 10 }, equipment: 'wield', parts: [repo.find('rod'), repo.find('piece of scrap metal', {size: 'large'}), repo.find('wire')],
+        name: 'axe',                     attack: 10, assemblyChance: 5, chance: { bp:60, item: 10 }, equipment: 'wield', parts: [repo.find('rod'), repo.find('piece of scrap metal', {size: 'large'}), repo.find('wire')],
         inspect: 'Can be used to chop down trees, or dismantle items'
     }),
     repo.add({

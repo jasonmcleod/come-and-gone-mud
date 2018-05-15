@@ -16,6 +16,8 @@ class Player {
         Object.assign(this, skillsMixin(this));
         Object.assign(this, recordMixin(this));
         Object.assign(this, combatMixin(this));
+
+        this.gold = this.gold || props.gold || 0;
         
         this.records = [];
         this.client = this.client || props.client;

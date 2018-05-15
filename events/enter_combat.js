@@ -4,7 +4,6 @@ module.exports = (events) => {
         if(client instanceof Client) {
             client.log(`You are entering combat with ${target.fullName()}`);
             client.player.target = target;
-            // console.log(target);
         }
     });
 };

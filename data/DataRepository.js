@@ -45,6 +45,7 @@ class DataRepository {
             class: Sequelize.STRING,
             vitals: Sequelize.STRING,
             inventory: Sequelize.STRING,
+            gold: Sequelize.INTEGER,
             records: Sequelize.STRING,
             x: Sequelize.INTEGER,
             y: Sequelize.INTEGER,
@@ -132,6 +133,7 @@ class DataRepository {
             instance.name = data.name;
             instance.logins = data.logins;
             instance.admin = data.admin;
+            instance.gold = data.gold;
             callback(instance);
         });
     }
@@ -145,7 +147,8 @@ class DataRepository {
             inventory: JSON.stringify(client.player.inventory.items),
             records: JSON.stringify(client.player.records),
             logins: client.player.logins,
-            admin: client.player.admin
+            admin: client.player.admin,
+            gold: client.player.gold
         }, {where: {id: client.player.id}});
     }
 
@@ -204,13 +207,15 @@ class DataRepository {
                 }
             }
         });
-        // this.tables.character.destroy({
-        //     where: {
-        //         id:{
-        //             [Sequelize.Op.ne]: null
-        //         }
-        //     }
-        // });
+        this.tables.character.update({
+            inventory: '[]'
+        }, {
+            where: {
+                id:{
+                    [Sequelize.Op.ne]: null
+                }
+            }            
+        });
     }
 }
 

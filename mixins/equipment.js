@@ -16,7 +16,7 @@ module.exports = (self) => ({
             if(exists) {
                 return exists;
             } else {
-                return new Item({name: 'Bare Hands' });
+                return new Item({name: 'Bare Hands', attack:1, });
             }
         },
 

@@ -78,7 +78,7 @@ class AreaRepository {
             const generated = this.state.npcRepository.generate(pick);
             if(generated.hasOwnProperty('onCreate')) generated.onCreate(generated);
             generated.x = area.x;
-            generated.y = area.y;
+            generated.y = area.y; //todo: hacky way to set x/y
             area.encounters.add(generated);
         }
     }
