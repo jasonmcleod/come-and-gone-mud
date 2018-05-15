@@ -18,7 +18,12 @@ var setCopy = function(value) {
 
 var newLine = function(str) {
     terminal.innerHTML += '<br>' + str;
-    window.scrollTo(0,document.body.scrollHeight);
+    console.log(document.body.scrollHeight, window.innerHeight)
+    setTimeout(() => {
+        if(document.body.scrollHeight > window.innerHeight) {
+            window.scrollTo(0,document.body.scrollHeight);
+        }
+    }, 100);
 };
 
 document.addEventListener('click', function() {setFocus() });

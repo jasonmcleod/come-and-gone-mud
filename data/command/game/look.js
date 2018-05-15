@@ -39,7 +39,7 @@ module.exports = (repo, state) => ({
             client.log('No npcs');
         }
 
-        if(area.inventory.items.length) {   
+        if(area.inventory.items.length) { // todo: bug- if you only have hidden items in an area it will say "0 items" instead of "no items"
             let visibleItems = 0;
             area.inventory.items.forEach((i) => { visibleItems+= i.hidden ? 0:1; } );
             client.log(`${visibleItems} item${visibleItems == 1 ? "":"s"}`);

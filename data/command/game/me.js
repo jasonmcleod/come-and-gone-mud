@@ -27,7 +27,7 @@ module.exports = (repo, state) => ({
         client.log(`Head:                       ${client.player.equipment.helmet().fullName()}`);
         client.log(`Armor:                      ${client.player.equipment.armor().fullName()}`);
         client.log(`Gold:                       ${player.gold}`);
-        client.log(`Type "items" to see  your inventory`);
+        client.log(`Type "items" to see your inventory`);
 
     }
 });
