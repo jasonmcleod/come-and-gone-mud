@@ -31,7 +31,10 @@ class Client {
     log(what) {
         if(this.webSocket) { this.webSocket.emit('newLine', what); }
         if(this.telnetSession) { this.telnetSession.log(what); }
-        if(config.REPL_LOG) console.log(what);
+        if(config.REPL_LOG) {
+
+            console.log((this.player ? this.player.name : 'Unknown player'), what);
+        }
     }
 }
 
