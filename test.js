@@ -53,8 +53,9 @@ module.exports = (state, client) => {
     // setTimeout(() => { require('./test-scripts/eat')(state, client, player, delta); }, delta+=500);
     // setTimeout(() => { require('./test-scripts/build-terminal')(state, client, player, delta); }, delta+=500);
     // setTimeout(() => { require('./test-scripts/build-compass')(state, client, player, delta); }, delta+=500);
-    // setTimeout(() => { require('./test-scripts/build-fort')(state, client, player, delta); }, delta+=500);
-    setTimeout(() => { require('./test-scripts/build-fishingpole')(state, client, player, delta); }, delta+=500);
+    setTimeout(() => { require('./test-scripts/build-fort')(state, client, player, delta); }, delta+=500);
+    // setTimeout(() => { require('./test-scripts/build-fishingpole')(state, client, player, delta); }, delta+=500);
     // setTimeout(() => { require('./test-scripts/storm')(state, client, player, delta); }, delta+=500);
+    // setTimeout(() => { require('./test-scripts/inspect')(state, client, player, delta); }, delta+=500);
     
 };

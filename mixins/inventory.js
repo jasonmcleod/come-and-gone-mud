@@ -69,7 +69,7 @@ module.exports = (self, overrides) => {
             asList: (client, showHidden=false) => {
                 if(self.inventory.items.length) {
                     self.inventory.items.forEach((i, index) => {
-                        let extra = i.hasOwnProperty('parts') ? '   (object)'.green : '    (item)'.yellow;
+                        let extra = i.hasOwnProperty('parts') ? '   (device)'.green : '     (item)'.yellow;
                         if(i.blueprint) extra = '(blueprint)'.cyan;
                         let equipped = (i.hasOwnProperty('equipped') && i.equipped )? '(equipped)' : '';
                         if((i.hidden && showHidden) || !i.hidden) {
