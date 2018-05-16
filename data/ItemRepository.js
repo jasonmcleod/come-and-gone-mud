@@ -68,7 +68,6 @@ class ItemRepository extends Repository {
         // if so, use it as a starting point
         if(base) Object.assign(props, base);
 
-        // logger.log(base, props)
         if(!base && !props) throw('cannot generate item without a base or props!');
         
         // cast it as a item

@@ -2,7 +2,7 @@ const logger = require('../../../lib/logger');
 
 module.exports = (repo, state) => ({
 
-    admin:  true,
+    // admin:  true,
     help: (client) => {
         client.log('save: Debug command to persist all data');
     },

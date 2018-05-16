@@ -19,7 +19,6 @@ class Client {
     setContext(context) {
         // when going back to main, erase history
         if(context === 'game') this.context.length = 0;
-        logger.log('Setting context:', context);
         events.emit('set_context', this, context);
         
         this.context.push(context);

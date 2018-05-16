@@ -4,18 +4,19 @@ const range = require('../../lib/range');
 module.exports = (repo) => {
     repo.add({
         chance: 30,
-        aggro: true,        
-        name: 'crazed scavenger',
+        aggro: true,
+        name: 'crazed engineer',
         goldDrop: 20,
         drops: {
             items: [
-                { item: 'pry bar', chance: 20 },
-                { item: 'axe', chance: 20 }
-            ],
+                {item: 'pry bar', chance: 20},
+                {item: 'drill', chance: 20}
+            ],            
             blueprints: [
                 { item: 'distress terminal', chance: 10},
-                { item: 'metal detector', chance: 30},
-            ]       
+                { item: 'generator', chance: 50},
+                { item: 'power supply', chance: 70},
+            ]                
         },
         vitals: {
             healthMax: 40

@@ -47,11 +47,11 @@ module.exports = (repo) => ([
         inspect: 'Detect and react to magnetic fields.'
     }),
     repo.add({
-        name: 'capacitor',               chance: 5,  weight: 1,
+        name: 'capacitor',               chance: 30,  weight: 1,
         inspect: 'Store an electric charge.'
     }),
     repo.add({
-        name: 'resistor',                chance: 5,  weight: 1,
+        name: 'resistor',                chance: 50,  weight: 1,
         inspect: 'Limit the amount of current moving through a circuit.'
     }),
     repo.add({
@@ -63,7 +63,7 @@ module.exports = (repo) => ([
         inspect: 'Could be used to make tools or weapons.'
     }),
     repo.add({
-        name: 'LED',                     chance: 50, weight: 1, attributes: ['color'],
+        name: 'LED',                     chance: 50, weight: 0, attributes: ['color'],
         inspect: 'Indicate activity or input in a simple machine.'
     }),
     repo.add({
@@ -79,7 +79,7 @@ module.exports = (repo) => ([
         inspect: 'Wheels spin easier when attached to an axle.'
     }),
     repo.add({
-        name: 'motor',                   chance: 80, weight: 8, attributes: ['size'],
+        name: 'motor',                   chance: 60, weight: 8, attributes: ['size'],
         inspect: 'Spin gears, or wheels without manual effort.'
     }),
     repo.add({
@@ -107,7 +107,7 @@ module.exports = (repo) => ([
         inspect: 'It floats...'
     }),
     repo.add({
-        name: 'metal rod',                     chance: 40, weight: 1, attributes: ['length'],
+        name: 'metal rod',               chance: 40, weight: 1, attributes: ['length'],
         inspect: 'Simple iron bar.'
     }),
     repo.add({
@@ -253,7 +253,7 @@ module.exports = (repo) => ([
             repo.find('speaker'), repo.find('speaker'), repo.find('radio crystal'), repo.find('radio transmitter'), repo.find('screen'),
             repo.find('LED'), repo.find('LED'), repo.find('LED'), repo.find('LED'), repo.find('LED'), repo.find('LED'),
             repo.find('generator'), repo.find('antenna'), repo.find('circuit board'), repo.find('circuit board'), repo.find('circuit board'), 
-            repo.find('wire'), repo.find('wire'), repo.find('wire'), repo.find('wire'), repo.find('wire'),
+            repo.find('wire'), repo.find('wire'), repo.find('wire'), repo.find('wire'), repo.find('wire'),repo.find('laser')
         ],
         inspect: 'Is anyone out there?'
     }),

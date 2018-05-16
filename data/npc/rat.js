@@ -4,7 +4,11 @@ const range = require('../../lib/range');
 module.exports = (repo) => {
     repo.add({
         chance: 80,      
-        drop: 1,  
+        goldDrop: 1,  
+        drops: {
+            items: [],
+            blueprints: []         
+        },
         name: 'rat',
         vitals: {
             healthMax: 20

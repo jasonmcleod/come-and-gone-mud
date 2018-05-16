@@ -48,7 +48,7 @@ module.exports = (repo, state) => ({
                     if(!i.hidden) executeTake(client, area, i);
                 }, index * 50);                
             });
-            tellOthers(client, state, area, '[all items]')
+            tellOthers(client, state, area, 'all items')
             return;
         }
         if(isNum(str)) {

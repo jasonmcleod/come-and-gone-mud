@@ -16,7 +16,6 @@ html, body {
     color: #bbbbbb;
     font-size:24px;
     font-size:18px;
-    
 }
 
 #terminal {
@@ -26,7 +25,8 @@ html, body {
     background:black;
     color:#bbb;
     font-family:dos;
-    overflow:hidden;
+    overflow:scroll;
+    overflow-x:hidden;
 }
 
 #prompt {

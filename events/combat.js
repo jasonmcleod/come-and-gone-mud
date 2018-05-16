@@ -1,5 +1,8 @@
 const logger = require('../lib/logger');
+const chance = require('../lib/chance');
 const config = require('../config');
+const range = require('../lib/range');
+
 let nextAttack = 0;
 module.exports = (events, state) => {
     events.on('tick', () => {
@@ -23,12 +26,29 @@ module.exports = (events, state) => {
                             client.log(`${target.name} hit you for ${targetAttack}`.red);
                             client.log(`\tTarget HP: ${Math.max(0, target.vitals.health)} / ${target.vitals.healthMax}`);
 
-                            if(target.vitals.health <= 0) {
-                                const drop = range(0, target.drop);
-                                
+                            if(target.vitals.health <= 0) {                                
+
                                 client.log(`You killed ${target.name}!`.green);
-                                if(drop) {
-                                    client.log(`You pickup ${drop} gold`);
+
+                                target.drops.items.forEach((i) => {
+                                    if(chance(i.chance)) {
+                                        const loot = state.itemRepository.generate(state.itemRepository.find(i.item));
+                                        player.inventory.add(loot);
+                                        client.log(`You receive ${loot.fullName()}.`);
+                                    }
+                                });
+
+                                target.drops.blueprints.forEach((i) => {
+                                    if(chance(i.chance)) {
+                                        const loot =  state.itemRepository.generate(state.itemRepository.find(i.item, {blueprint: true}));
+                                        player.inventory.add(loot);
+                                        client.log(`You receive ${loot.fullName()} blueprint.`);
+                                    }
+                                });
+
+                                if(chance(50)) {
+                                    const drop = range(0, target.goldDrop);
+                                    client.log(`You receive ${drop} gold.`);
                                     client.player.gold+=drop;
                                 }
                                 

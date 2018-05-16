@@ -1,15 +1,18 @@
 var ansi_up = new AnsiUp;
 var terminal = document.getElementById('terminal');
 var prompt = document.getElementById('prompt');
-var fullHistory = '';
+var fullHistory = [];
 
 var setFocus = function() { prompt.focus(); }
 
 var newLine = function(str) {
-    fullHistory += '\r\n' + str;
-    var html = ansi_up.ansi_to_html(fullHistory);
+    fullHistory.push(str);
+    var html = ansi_up.ansi_to_html(fullHistory.join('\r\n'));
     terminal.innerHTML = html;
     terminal.scrollTop = terminal.scrollHeight;
+    if(fullHistory.length > 200) {
+        fullHistory = fullHistory.slice(derp.length - 100);
+    }
 };
 
 document.addEventListener('click', function() {setFocus() });
