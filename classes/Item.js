@@ -48,7 +48,6 @@ class Item extends ProceduralEntity {
 
     chanceOfFinding() {
         const chance = typeof this.chance == 'object' ? this.chance.item : this.chance;
-        if(chance === 0) logger.log(`chanceOfFinding (${this.name}) is returning 0!`);
         return chance;
     }
 

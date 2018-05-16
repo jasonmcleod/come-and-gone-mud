@@ -33,7 +33,6 @@ class AreaRepository {
     }
 
     generateItems(area, plainview, hidden) {
-        logger.log('generating items');
         const results = [];
         for(let i = 0; i < plainview; i++) {
             const roll = range(0, 100);

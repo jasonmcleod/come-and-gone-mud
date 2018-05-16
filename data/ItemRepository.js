@@ -78,7 +78,6 @@ class ItemRepository extends Repository {
         if(props.hasOwnProperty('attributes')) {
             for(let a in props.attributes) {
                 let rng = range(0, this.attributes[props.attributes[a]].length);                
-                logger.log('adding attribute', props.attributes[a], this.attributes[props.attributes[a]], this.attributes[props.attributes[a]][rng])
                 item[props.attributes[a]] = this.attributes[props.attributes[a]][rng];
             }
         }
