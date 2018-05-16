@@ -10,7 +10,8 @@ module.exports = (repo) => {
         drops: {
             items: [
                 { item: 'pry bar', chance: 20 },
-                { item: 'axe', chance: 20 }
+                { item: 'axe', chance: 20 },
+                { item: 'compass', chance: 80 }
             ],
             blueprints: [
                 { item: 'distress terminal', chance: 10},
