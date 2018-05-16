@@ -197,6 +197,8 @@ class DataRepository {
         this.state.areaRepository.collection.forEach((area) => {
             this.saveArea(area);
         });
+
+        console.log('peristing state to db');
     }
 
     truncate() {
