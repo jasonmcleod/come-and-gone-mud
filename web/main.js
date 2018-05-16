@@ -11,7 +11,7 @@ var newLine = function(str) {
     terminal.innerHTML = html;
     terminal.scrollTop = terminal.scrollHeight;
     if(fullHistory.length > 200) {
-        fullHistory = fullHistory.slice(derp.length - 100);
+        fullHistory = fullHistory.slice(fullHistory.length - 100);
     }
 };
 

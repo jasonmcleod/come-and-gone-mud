@@ -48,8 +48,10 @@ module.exports = (events, state) => {
 
                                 if(chance(50)) {
                                     const drop = range(0, target.goldDrop);
-                                    client.log(`You receive ${drop} gold.`);
-                                    client.player.gold+=drop;
+                                    if(drop) {
+                                        client.log(`You receive ${drop} gold.`);
+                                        client.player.gold+=drop;
+                                    }
                                 }
                                 
                                 player.area.encounters.remove(target);
