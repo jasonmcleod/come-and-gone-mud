@@ -6,7 +6,7 @@ const onFail = (client) => {
 
 module.exports = (repo, state) => ({
 
-    help: (player) => {
+    help: (client) => {
         client.log('eat: Eat an item from your inventory.');
         client.log('Usage: "eat apple"');
     },

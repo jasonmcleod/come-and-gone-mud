@@ -10,7 +10,7 @@ module.exports = (repo, state) => ({
 
     alias: ['dismantle'],
 
-    help: (player) => {
+    help: (client) => {
         client.log('dismantle: Dismantle an item from your inventory.');
         client.log('Usage: "dismantle piece of paper"');
     },

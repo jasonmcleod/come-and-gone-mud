@@ -6,7 +6,7 @@ const onFail = (client) => {
 
 module.exports = (repo, state) => ({
 
-    help: (player) => {
+    help: (client) => {
         client.log('drop: Drop an item from your inventory.');
         client.log('Usage: "drop piece of paper"');
     },

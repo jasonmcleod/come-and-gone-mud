@@ -2,7 +2,7 @@ const logger = require('../../../lib/logger');
 
 module.exports = (repo, state) => ({
 
-    help: (player) => {
+    help: (client) => {
         client.log('say: Say something to the other players in the game');
         client.log('Usage: "say hello world"');
     },

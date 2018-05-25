@@ -4,7 +4,7 @@ module.exports = (repo, state) => ({
 
     alias: ['commands'],
 
-    help: (player) => {
+    help: (client) => {
         client.log('redundant');
     },
 

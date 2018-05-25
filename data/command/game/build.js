@@ -13,7 +13,7 @@ module.exports = (repo, state) => ({
 
     alias: ['assemble'],
 
-    help: (player) => {
+    help: (client) => {
         client.log('build: Build an item from a blueprint in your inventory.');
         client.log('Usage: "dismantle piece of paper"');
     },
