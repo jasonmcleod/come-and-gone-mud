@@ -6,7 +6,7 @@ const events = require('../../../lib/events');
 const Item = require('../../../classes/Item');
 
 const onFail = (player) => {
-    client.log('Error: build command expects the following format: build _blueprint item name_');
+    player.client.log('Error: build command expects the following format: build _blueprint item name_');
 }
 
 module.exports = (repo, state) => ({
