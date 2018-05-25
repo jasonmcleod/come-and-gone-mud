@@ -8,7 +8,7 @@ module.exports = (repo, state) => ({
 
     help: (client) => {
         client.log('inspect: Inspect an item from your inventory.');
-        client.log('Usage: "inspect piece of paper"');
+        client.log('Usage: "inspect CD player"');
     },
 
     execute: (client, str) => {

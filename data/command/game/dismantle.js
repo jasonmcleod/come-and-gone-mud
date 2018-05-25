@@ -12,7 +12,7 @@ module.exports = (repo, state) => ({
 
     help: (client) => {
         client.log('dismantle: Dismantle an item from your inventory.');
-        client.log('Usage: "dismantle piece of paper"');
+        client.log('Usage: "dismantle CD player"');
     },
 
     execute: (client, str) => {

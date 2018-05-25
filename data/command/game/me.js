@@ -6,7 +6,7 @@ module.exports = (repo, state) => ({
     alias: ['character', 'skills', 'stats', 'vitals', 'info'],
     
     help: (client) => {
-        client.log('east: move east');
+        client.log('east: get details about your character');
     },
 
     execute: (client, str) => {

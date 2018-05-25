@@ -8,7 +8,7 @@ module.exports = (repo, state) => ({
 
     help: (client) => {
         client.log('drop: Drop an item from your inventory.');
-        client.log('Usage: "drop piece of paper"');
+        client.log('Usage: "drop axe"');
     },
 
     execute: (client, str) => {

@@ -15,7 +15,7 @@ module.exports = (repo, state) => ({
 
     help: (client) => {
         client.log('build: Build an item from a blueprint in your inventory.');
-        client.log('Usage: "dismantle piece of paper"');
+        client.log('Usage: "build compass"');
     },
 
     execute: (client, str) => {

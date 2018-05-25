@@ -5,7 +5,7 @@ module.exports = (repo, state) => ({
     admin:true,
 
     help: (client) => {
-        client.log('truncate: Drop an item from your inventory.');
+        client.log('truncate: truncate the database.');
     },
 
     execute: (client, str) => {

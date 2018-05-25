@@ -5,7 +5,7 @@ const events = require('../../../lib/events');
 module.exports = (repo, state) => ({
     admin: true,
     help: (client) => {
-        client.log('chop: chop wood');
+        client.log('clear: clear your inventory');
     },
 
     execute: (client, str) => {

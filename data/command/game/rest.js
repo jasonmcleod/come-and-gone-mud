@@ -3,7 +3,7 @@ const logger = require('../../../lib/logger');
 module.exports = (repo) => ({
 
     help: (client, state) => {
-        client.log('rest: Rest for a moment.');
+        client.log('rest: Rest for a moment to regain stamina.');
         client.log('Usage: "rest');
     },
 
