@@ -5,8 +5,8 @@ const chance = require('../../../lib/chance');
 const events = require('../../../lib/events');
 const Item = require('../../../classes/Item');
 
-const onFail = (player) => {
-    player.client.log('Error: build command expects the following format: build _blueprint item name_');
+const onFail = (client) => {
+    client.log('Error: build command expects the following format: build _blueprint item name_');
 }
 
 module.exports = (repo, state) => ({
@@ -21,7 +21,7 @@ module.exports = (repo, state) => ({
     execute: (client, str) => {
         const player = client.player;
 
-        if(str.length<=0) return onFail(player);
+        if(str.length<=0) return onFail(client);
 
         let item = false;
         if(isNum(str)) {
